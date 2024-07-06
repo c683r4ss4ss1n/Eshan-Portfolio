@@ -1,0 +1,205 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white p-8 rounded-lg shadow-md mb-8 transform transition duration-500 ease-in-out hover:scale-105">
+    <div class="w-full flex justify-between items-center space-x-6">
+        <img id="image" src="{% static 'images/avatar2.png' %}" alt="Avatar" class="w-48 h-48 rounded-full shadow-lg transition duration-500 ease-in-out transform hover:scale-110">
+        <div class="max-w-full animate-slide-up">
+            <h2 class="font-bold animate-fade-in" id="name">R Rafiou Khan Eshan</h2>
+            <p class="text-lg animate-fade-in-delay" id="dynamic-text"></p>
+            <p class="text-lg leading-relaxed mb-4 animate-fade-in text-justify" id="paragraph">
+                Hello! I'm R Rafiou Khan Eshan, a dedicated businessman based in Dhaka, Bangladesh. With a strong background in business management, I have successfully led and managed various projects across different industries. My educational background includes an M.Sc in Cyber Security and a B.Sc in Software Engineering.
+            </p>
+            <p class="text-lg leading-relaxed mt-4 animate-fade-in-delay text-justify" id="paragraph">
+                Outside of work, I enjoy gaming, coding, hacking practice, and traveling. I am passionate about leveraging technology to drive business growth and innovation.
+            </p>
+            <div class="flex justify-center space-x-4 mt-4" id="icons">
+                <a href="https://facebook.com/c683r4ss4ssn" class="social-icon text-blue-600"><i class="fab fa-facebook" id="facebook"></i></a>
+                <a href="https://instagram.com/c683r4ss4ssn" class="social-icon text-pink-600"><i class="fab fa-instagram" id="instagram"></i></a>
+                <a href="https://linkedin.com/in/r-rafiou-khan-eshan-48805a1a7" class="social-icon text-blue-700"><i class="fab fa-linkedin" id="linkdin"></i></a>
+                <a href="https://github.com/c683r4ss4ss1n" class="social-icon text-gray-900"><i class="fab fa-github" id="github"></i></a>
+                <a href="https://youtube.com/channel/UCiFbVVmtVGTdPJPCWyg-4Ag" class="social-icon text-red-600"><i class="fab fa-youtube" id="youtube"></i></a>
+                <a href="https://t.me/c683r_4ss4ss1n" class="social-icon text-blue-500"><i class="fab fa-telegram" id="telegram"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex justify-center items-center space-x-6" id="buttons">
+        <a href="#" class="btn-gradient">Hire Me</a>
+        <a href="#" class="btn-gradient">Download CV</a>
+    </div>
+</section>
+
+<style>
+    #facebook:hover{
+        color: #2563eb;
+    }
+    #instagram:hover{
+        color: #db2777;
+    }
+    #linkdin:hover{
+        color: #0077B5;
+    }
+    #github:hover{
+        color:#2dba4e;
+    }
+    #youtube:hover{
+        color:#ff0000;
+    }
+    #telegram:hover{
+        color:#24A1DE;
+    }
+    #icons{
+        padding-top: 10px;
+    }
+    #name {
+        font-size: 48px;
+        font-family: "Patua One", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    #buttons{
+        justify-content: center;
+        gap: 10px;
+    }
+    #paragraph{
+        letter-spacing: 1px;
+        word-spacing: 5px;
+        text-align: justify;
+        font-family: "Playwrite IT Moderna", cursive;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+    }
+    .btn-gradient {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+        color: white;
+        background: linear-gradient(45deg, rgb(107, 17, 203),rgb(255, 166, 0));
+        background-size: 200% 200%;
+        transition: background-position 0.5s, transform 0.3s;
+    }
+    .btn-gradient:hover {
+        background-position: right center;
+        transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes iconBounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+    
+    .animate-fade-in-delay {
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    
+    .animate-slide-up {
+        animation: slideUp 1s ease-in-out;
+    }
+    
+    #dynamic-text {
+        color: #FFA500;
+        letter-spacing: 2px;
+        word-spacing: 4px;
+        font-size: 20px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-family: "Playwrite RO", cursive;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .social-icon {
+        font-size: 30px;
+        transition: transform 0.3s;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+        animation: iconBounce 1s;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const phrases = [
+        "Businessman",
+        "Cyber Security Specialist",
+        "Software Engineer",
+        "Technology Enthusiast",
+        "Gamer",
+        "Programmer",
+    ];
+    let currentIndex = 0;
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    const dynamicText = document.getElementById('dynamic-text');
+
+    function updateText() {
+        const phrase = phrases[currentIndex];
+        let displayText = Array(phrase.length).fill('_');
+        let settledLetters = 0;
+
+        function shuffle() {
+            for (let i = settledLetters; i < phrase.length; i++) {
+                displayText[i] = characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            dynamicText.textContent = displayText.join('');
+
+            if (settledLetters < phrase.length) {
+                setTimeout(() => {
+                    displayText[settledLetters] = phrase[settledLetters];
+                    settledLetters++;
+                    shuffle();
+                }, 100); // Adjust timing for more randomness
+            }
+        }
+
+        shuffle();
+
+        currentIndex = (currentIndex + 1) % phrases.length;
+    }
+
+    updateText();
+    setInterval(updateText, 5000);
+});
+</script>
+{% endblock %}

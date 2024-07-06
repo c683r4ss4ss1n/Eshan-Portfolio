@@ -1,0 +1,87 @@
+{% load static %}
+<nav id="navbar" class="text-white fixed top-0 left-0 h-full w-64 flex flex-col items-center justify-between">
+    <div class="flex flex-col items-center space-y-4 font-bold">
+        <img id="avatar" src="{% static 'images/avatar2.png' %}" alt="Avatar" class="w-32 h-32 rounded-full">
+        {% include 'portfolio/logo.html' %}
+        <div class="text-center">
+            <p class="text-sm text-gray-400">IT Project & Tender Analyst</p>
+        </div>
+    </div>
+    <div id="items" class="flex flex-col items-center font-bold flex-grow justify-around">
+        <a href="{% url 'home' %}" class="nav-link {% if request.path == '/' %}text-purple-600{% endif %}">Home</a>
+        <a href="{% url 'about' %}" class="nav-link {% if request.path == '/about/' %}text-purple-600{% endif %}">About</a>
+        <a href="{% url 'services' %}" class="nav-link {% if request.path == '/services/' %}text-purple-600{% endif %}">Services</a>
+        <a href="{% url 'skills' %}" class="nav-link {% if request.path == '/skills/' %}text-purple-600{% endif %}">Skills</a>
+        <a href="{% url 'education' %}" class="nav-link {% if request.path == '/education/' %}text-purple-600{% endif %}">Education</a>
+        <a href="{% url 'experience' %}" class="nav-link {% if request.path == '/experience/' %}text-purple-600{% endif %}">Experience</a>
+        <a href="{% url 'work' %}" class="nav-link {% if request.path == '/work/' %}text-purple-600{% endif %}">Work</a>
+        <a href="{% url 'projects' %}" class="nav-link {% if request.path == '/projects/' %}text-purple-600{% endif %}">Projects</a>
+        <a href="{% url 'contact' %}" class="nav-link {% if request.path == '/contact/' %}text-purple-600{% endif %}">Contact</a>
+    </div>
+    <div class="flex flex-col text-center text-sm text-gray-400 mt-auto space-y-4 items-center">
+        <p>© Copyright @2024 All rights reserved by <div class="font-bold">R Rafiou Khan Eshan</div></p>
+        <div class="flex flex-row justify-center space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</nav>
+
+<script>
+function updateTimer() {
+    const timerElement = document.getElementById('timer');
+    const now = new Date();
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const formattedTime = now.toLocaleDateString('en-US', options);
+    timerElement.textContent = formattedTime;
+}
+
+function revealLetters() {
+    const letters = document.querySelectorAll('.letter');
+    letters.forEach((letter, index) => {
+        setTimeout(() => {
+            letter.classList.remove('hidden');
+            letter.style.animationDelay = `${index * 0.2 + 1}s`; // Starts after the bounce animation
+            letter.style.opacity = '1';
+        }, index * 200);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    setInterval(updateTimer, 1000);
+    updateTimer(); // initial call to display time immediately
+    revealLetters(); // Reveal letters after the initial animation
+});
+</script>
+
+<style>
+    #navbar {
+        max-width: 300px;
+        background-color: #131313;
+    }
+    #items {
+        justify-content: space-evenly;
+        padding: 20px 0px 20px 0px;
+    }
+    #navbar {
+        padding: 60px 20px 60px 20px;
+    }
+    .nav-link {
+        text-decoration: none;
+        color: white;
+        transition: color 0.5s ease-in-out;
+    }
+    .nav-link:hover {
+        color: #FFA500; /* Change this to your desired hover color */
+    }
+    .nav-link.text-purple-600 {
+        color: #6b11cb; /* Tailwind purple-600 color */
+    }
+    #avatar{
+        background-color: rgba(255, 255, 255, 0.01);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1) inset;
+        border-radius: 50%;
+    }
+</style>

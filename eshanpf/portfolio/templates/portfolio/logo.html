@@ -1,0 +1,50 @@
+<!-- portfolio/templates/portfolio/logo.html -->
+<div class="logo-animation font-bold">
+    <span class="text-blue-400 animate-bounce-once">E</span>
+    <span class="text-teal-400 letter hidden">s</span>
+    <span class="text-teal-400 letter hidden">h</span>
+    <span class="text-teal-400 letter hidden">a</span>
+    <span class="text-teal-400 letter hidden">n</span>
+</div>
+
+<style>
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-15%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate-bounce-once {
+    display: inline-block;
+    animation: bounce-in 1s ease-in-out;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+}
+span{
+    font-size: 2rem;
+}
+</style>
